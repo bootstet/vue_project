@@ -1,6 +1,6 @@
 <template>
   <div>
-        goods
+        goods商品
   </div>
 </template>
 

@@ -1,8 +1,10 @@
 //引包
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
  // 注册使用
 Vue.use(VueRouter)
+Vue.use(VueResource)
 import App from './App.vue'
 
 // 设置路由

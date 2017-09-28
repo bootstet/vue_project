@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-        <v-header></v-header>
+        <v-header :seller="seller"></v-header>
         <div class="tab">
              <div class="tab-item">
                   <router-link to="/goods">商品</router-link> 
@@ -24,6 +24,19 @@
 //引入header组件
 import header from './components/header/header.vue'
 export default {
+      data() {
+            return {
+                  seller: {}
+            }
+      },
+      created () {
+            this.$http.get('../data.json').then(response => {
+                  this.seller = response.body.seller
+                  console.log(this.seller)
+            },error => {
+                  console.log(error)
+            })
+      },
       components:{
             'v-header':header
       }

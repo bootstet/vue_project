@@ -6,15 +6,15 @@
                   <router-link to="/goods">商品</router-link> 
              </div>  
              <div class="tab-item">
-                   <router-link to="/ratings">评论</router-link>
+                   <router-link to="/ratings">评价</router-link>
              </div>  
              <div class="tab-item">
-                  <router-link to="/seller">结构</router-link>
+                  <router-link to="/seller">商家</router-link>
              </div>  
         </div>
          <router-view></router-view>
         <div class="content">
-              im content
+              <!-- im content -->
         </div>
         
   </div>
@@ -60,7 +60,7 @@ export default {
                               color:rgb(77,85,93);
                         }
                         .active{
-                                    background-color: yellow;
+                               color: rgb(240,20,20);
                               }
                   }
             }

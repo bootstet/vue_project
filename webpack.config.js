@@ -33,9 +33,16 @@ module.exports = {
                loader: 'style-loader!css-loader!sass-loader!scss-loader'
             },
             {
-                test: /\.(png|jpg|gif)$/, 
+                test: /\.(png|jpg|gif|svg)$/, 
                 loader: 'file-loader?name=./images/[name].[ext]' 
-            }
+            },
+            // {
+            //     test: /\.svg$/,
+            //     loader: 'svg-sprite?' + JSON.stringify({
+            //         name: '[name]_[hash]',
+            //         prefixize: true
+            //     })
+            // }
         ]
   },
   plugins: [

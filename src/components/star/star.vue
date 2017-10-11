@@ -65,62 +65,69 @@ export default {
            @include bg-image("star48_on");
        }
        &.star-48{
-           width: 20px;
-           height: 20px;
-           margin-right: 20px;
-           background-size: 20px 20px;
-           &.on{
-            //    background-image: url("./star24_half@2x.png");
-               @include bg-image("star48_on");
-           }
-           &.half{
-               @include bg-image("star48_half");
-           }
-           &.off{
-               @include bg-image("star48_off");
-           }
-           &:last-child{
-               margin-right: 0;
-
+           .star-item{
+                width: 20px;
+                height: 20px;
+                margin-right: 20px;
+                background-size: 20px 20px;
+                &.on{
+                    //    background-image: url("./star24_half@2x.png");
+                    @include bg-image("star48_on");
+                }
+                &.half{
+                    @include bg-image("star48_half");
+                }
+                &.off{
+                    @include bg-image("star48_off");
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
            }
        }
        &.star-36{
-           width: 15px;
-           height: 15px;
-           margin-right: 6px;
-           background-size: 15px 15px;
-           &.on{
-               @include bg-image("star36_on");
+           .star-item{
+               width: 15px;
+                height: 15px;
+                margin-right: 6px;
+                background-size: 15px 15px;
+                &.on{
+                    @include bg-image("star36_on");
+                }
+                &.half{
+                    @include bg-image("star36_half");
+                }
+                &.off{
+                    @include bg-image("star36_off");
+                }
+                &:last-child{
+                    margin-right: 0;
+                        
+                }
            }
-           &.half{
-               @include bg-image("star36_half");
-           }
-           &.off{
-               @include bg-image("star36_off");
-           }
-           &:last-child{
-               margin-right: 0;
-                
-           }
+           
        }
        &.star-24{
-           width: 10px;
-           height: 10px;
-           margin-right: 3px;
-           background-size: 10px 10px;
-           &.on{
-               @include bg-image("star24_on");
+           .star-item{
+                width: 10px;
+                height: 10px;
+                margin-right: 3px;
+                background-size: 10px 10px;
+                &.on{
+                    @include bg-image("star24_on");
+                }
+                &.half{
+                    @include bg-image("star24_half");
+                }
+                &.off{
+                    @include bg-image("star24_off");
+                }
+                &:last-child{
+                    margin-right: 0;
+                        
+                }
            }
-           &.half{
-               @include bg-image("star24_half");
-           }
-           &.off{
-               @include bg-image("star24_off");
-           }
-           &:last-child{
-               margin-right: 0;
-                
-           }
+           
        }
      
    }

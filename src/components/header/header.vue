@@ -256,10 +256,10 @@ export default {
                   overflow: auto;
                   backdrop-filter: blu(10px);
                   background: rgba(7,17,27,0.8);
-                  transition: all 1s;
+                  transition: all 0.5s;
                   &.fade-transition{
                         opacity: 1;
-                        background: rgba(7,17,27,0.8);
+                        // background: rgba(7,17,27,0.8);
                   }
                   &.fade-enter,&.fade-leave{
                         opacity: 0;

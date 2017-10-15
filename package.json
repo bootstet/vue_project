@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --progress --port 8000  --host 192.168.0.103 --open"
+    "dev": "webpack-dev-server --progress --port 8000  --host 192.168.0.101 --open"
   },
   "author": "chenyouzeng",
   "license": "ISC",
@@ -20,7 +20,8 @@
     "vue-router": "^2.6.0",
     "vue-template-compiler": "^2.3.4",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "better-scroll": "^0.1.7"
   },
   "dependencies": {
     "file-loader": "^0.11.2",

@@ -16,7 +16,7 @@
             <li v-for="(item,index) in goods" class="food-list food-list-hook" :key="index">
               <h1 class="title">{{item.name}}</h1>
               <ul>
-                <li v-for="(food,index) in item.foods" class="food-item" :key="index">
+                <li @click="selectFood(food,$event)" v-for="(food,index) in item.foods" class="food-item" :key="index">
                   <div class="icon">
                     <img :src="food.icon" alt="" width="57" height="57">
                   </div>
@@ -29,23 +29,32 @@
                     <div class="price">
                       <span class="now">¥{{food.price}}</span><span class="old" v-show="food.oldPrice">¥{{food.oldPrice}}</span>
                     </div>
+                    <div class="cartcontrol-wrapper">
+                      <cartcontrol @add="addFoods" :food="food"></cartcontrol>
+                    </div>
                   </div>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
+        <shopcart @add="addFoods" ref="shopcart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>  
+        <food :food="selectFood"></food>
   </div>
 </template>
 
 <script>
 import BScroll from "better-scroll";
+import shopcart from "../shopcart/shopcart.vue";
+import cartcontrol from "../cartcontrol/cartcontrol.vue";
+import food from "../food/food.vue";
 export default {
   data(){
     return{
       goods:[],
       listHeight:[],
       scrollY:0,
+      selectedFood:{}
     }
   },
   computed:{
@@ -58,6 +67,17 @@ export default {
         }
       }
       return 0;
+    },
+    selectFoods(){
+      let foods = [];
+      this.goods.forEach((good)=>{
+        good.foods.forEach((food)=>{
+          if(food.count){
+            foods.push(food);
+          }
+        })
+      })
+      return foods;
     }
   },
   props:{
@@ -76,7 +96,6 @@ export default {
         this._calculateHeight();
       })
       
-      console.log(this.goods)
     },err => {
       console.log(err);
     })
@@ -86,16 +105,24 @@ export default {
       if(!event._constructed){
         return;
       }
-      console.log(index);
       let foodList = this.$refs.foodswrapper.getElementsByClassName('food-list-hook');
       let el = foodList[index];
       this.foodsScroll.scrollToElement(el,500);
+    },
+    selectFood(food,event){
+      console.log(2222)
+      if (!event._constructed) {
+        return;
+      }
+      this.selectedFood = food;
+      this.$refs.food.show();
     },
     _initScroll(){
       this.menuScroll = new BScroll(this.$refs.menuwrapper,{
         click : true
       });
       this.foodsScroll = new BScroll(this.$refs.foodswrapper,{
+        click : true,
         probeType : 3
       });
       this.foodsScroll.on('scroll',(pos)=>{
@@ -111,7 +138,18 @@ export default {
         height += item.clientHeight;
         this.listHeight.push(height);
       }
+    },
+    addFoods(target){
+      this._drop(target);
+    },
+    _drop(target){
+      this.$refs.shopcart.drop(target);
     }
+  },
+  components:{
+    shopcart,
+    cartcontrol,
+    food
   }
 }
 </script>
@@ -206,6 +244,7 @@ export default {
            }
            .content{
              flex: 1;
+             position: relative;
              .name{
                margin: 2px  0 8px 0;
                height: 14px;
@@ -241,6 +280,11 @@ export default {
                  font-size: 10px;
                  color:rgb(147,153,159);
                }
+             }
+             .cartcontrol-wrapper{
+               position: absolute;
+               right: 0;
+               bottom: -12px;
              }
            }
          }

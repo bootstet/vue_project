@@ -95,7 +95,6 @@ export default {
             }
       },
       created (){
-            console.log(this.seller)
             this.classMap = ['decrease','discount','special','invoice','guarantee'];
 
       },

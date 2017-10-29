@@ -12,7 +12,7 @@
                   <router-link to="/seller">商家</router-link>
              </div>  
         </div>
-         <router-view></router-view>
+         <router-view :seller="seller"></router-view>
         <div class="content">
               <!-- im content -->
         </div>
@@ -32,7 +32,6 @@ export default {
       created () {
             this.$http.get('../data.json').then(response => {
                   this.seller = response.body.seller
-                  console.log(this.seller)
             },error => {
                   console.log(error)
             })

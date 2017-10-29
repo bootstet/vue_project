@@ -13,6 +13,7 @@ import ratings from './components/ratings/ratings.vue'
 import seller from './components/seller/seller.vue'
 
 import '../statics/css/reset.css'
+import '../src/common/sell-icon/style.css'
 
 // 创建并设置路由
 const router = new VueRouter({

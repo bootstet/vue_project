@@ -39,7 +39,7 @@
           </ul>
         </div>
         <shopcart @add="addFoods" ref="shopcart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>  
-        <food :food="selectFood"></food>
+        <food :food="selectedFood"></food>
   </div>
 </template>
 
@@ -89,6 +89,7 @@ export default {
     this.classMap = ['decrease','discount','special','invoice','guarantee'];
     this.$http.get("../data.json").then(response => {
       this.goods = response.body.goods;
+      console.log(this.goods)
 //       Vue 实现响应式并不是数据发生变化之后 DOM 立即变化，而是按一定的策略进行 DOM 的更新。
 // $nextTick 是在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后使用 $nextTick，则可以在回调中获取更新后的 DOM
       this.$nextTick(()=>{
@@ -110,7 +111,6 @@ export default {
       this.foodsScroll.scrollToElement(el,500);
     },
     selectFood(food,event){
-      console.log(2222)
       if (!event._constructed) {
         return;
       }

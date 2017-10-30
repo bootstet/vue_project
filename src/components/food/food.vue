@@ -5,30 +5,32 @@
 </template>
 <script>
 export default {
-    data(){
-        return{
-            showFlah:true
-        }
-    },
-    props:{
-        food:{
-            type:Object
-        }
-    },
-    methods:{
-
+  data() {
+    return {
+        showFlag: false 
+    };
+  },
+  props: {
+    food: {
+      type: Object
     }
-}
+  },
+  methods: {
+    show() {
+      this.showFlag = true;
+    }
+  }
+};
 </script>
 <style lang="scss">
-    .food{
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 48px;
-        z-index: 30;
-        width: 100%;
-        background: #fff;
-    }
+.food {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 48px;
+  z-index: 30;
+  width: 100%;
+  background: #fff;
+}
 </style>
 

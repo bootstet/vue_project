@@ -18,6 +18,7 @@ import '../src/common/sell-icon/style.css'
 // 创建并设置路由
 const router = new VueRouter({
       routes:[
+            {path:'/',component:goods},
             {path:'/goods',component:goods},
             {path:'/ratings',component:ratings},
             {path:'/seller',component:seller},

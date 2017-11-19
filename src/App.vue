@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-        <v-header :seller="seller">,,,</v-header>
+        <v-header :seller="seller"></v-header>
         <div class="tab">
              <div class="tab-item">
                   <router-link to="/goods">商品</router-link> 
@@ -50,6 +50,7 @@ export default {
                   width:100%;
                   height:40px;
                   line-height:40px;
+                  // border-bottom: 1px solid #ddd;
                   .tab-item{
                         flex:1;
                         text-align: center;
@@ -57,9 +58,11 @@ export default {
                               display: block;
                               font-size:16px;
                               color:rgb(77,85,93);
+                              border-bottom:1px solid rgba(77,85,93,0.1);
                         }
                         .active{
                                color: rgb(240,20,20);
+                               border-bottom: none;
                               }
                   }
             }
